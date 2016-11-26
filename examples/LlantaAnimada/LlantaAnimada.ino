@@ -1,3 +1,17 @@
+/**
+* LlantaAnimada
+* Ejemplo de llanta de color animada, se emplea la
+* regla de tres(https://es.wikipedia.org/wiki/Regla_de_tres)
+* para calcular el angulo(posicion) de cada uno de los pixeles y
+* luego para el mapeo de seno(https://es.wikipedia.org/wiki/Seno_(trigonometr%C3%ADa))
+* a cada pixel.
+*
+* @author Alex Vargas Benamburg (alex@vbalex.com)
+* @date Sabado 26, Septiembre 2016
+* @version 0.1
+* @license CC-BY-SA
+**/
+
 #include <Adafruit_NeoPixel.h>
 #include <ColorTools.h>
 
@@ -21,13 +35,13 @@ void loop() {
   //variables para colores
   HSV hsv(0, 1.0, 1.0); // tono 0 saturacion 100% valor 100%
   RGB rgb;
-  //cliclo de animacion de movimiento
+  //ciclo de animacion de movimiento
   for(float p = -PI; p<PI; p+=velocidad){
-    //clico para definir color de cada pixel
+    //ciclo para definir color de cada pixel
     for(uint8_t pixel=0; pixel<luces.numPixels();++pixel){
       float val = sin(pixel*propPixel + p) + 1;
       hsv.h = val*propSin;
-      HSV2RGB(hsv,&rgb); // combercion de HSV a RGB
+      HSV2RGB(hsv,&rgb); // comvercion de HSV a RGB
       luces.setPixelColor(pixel ,rgb.r ,rgb.g ,rgb.b);
     }
     luces.show();;
