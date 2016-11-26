@@ -1,6 +1,11 @@
 # AVB Color tools
 Libreria para trabajar con animacion de colores de forma sensilla.
 
+##Que incluye?
+  Por el momento 2 estructuras de datos(RGB y HSV) y 2 funciones para convertir entre estos modelos de color
+
+  Algunos ejemplos del uso y demostrar la simplicidad.
+
 ## Para que?
  Cuando ocupas hacer cambios de color de forma mas sencilla usar el modelo de color HSV(https://en.wikipedia.org/wiki/HSL_and_HSV) es mas conveniente(desde mi perspectiva)  Y por que convertir a RGB, normalmente los pixeles, las tiras de leds, las matrices y las pantallas se basan el en modelo RGB.
 
