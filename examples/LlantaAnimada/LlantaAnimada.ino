@@ -41,7 +41,7 @@ void loop() {
     for(uint8_t pixel=0; pixel<luces.numPixels();++pixel){
       float val = sin(pixel*propPixel + p) + 1;
       hsv.h = val*propSin;
-      HSV2RGB(hsv,&rgb); // comvercion de HSV a RGB
+      HSV2RGB(hsv,&rgb); // convercion de HSV a RGB
       luces.setPixelColor(pixel ,rgb.r ,rgb.g ,rgb.b);
     }
     luces.show();;

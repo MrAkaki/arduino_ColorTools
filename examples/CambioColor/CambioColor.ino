@@ -13,6 +13,8 @@
 
 Adafruit_NeoPixel luces = Adafruit_NeoPixel(NUM_PIXELES, PIN_PIXELES, NEO_GRB + NEO_KHZ800);
 
+float velocidad = 0.025;
+
 void setup() {
   luces.begin();
 }
@@ -22,13 +24,14 @@ void loop() {
   HSV hsv(0, 1.0, 1.0); // tono 0 saturacion 100% valor 100%
   RGB rgb;
   //ciclo para cambio de color desde 0 hasta 360 aumentando en medio grado
-  for(hsv.h = 0; hsv.h<360; hsv.h+= 0.5){
+  for(float tono = 0; tono<360; tono += velocidad){
+    hsv.h = tono;
     HSV2RGB(hsv, &rgb);// Comvercion de hsv a rgb
+
     //asignacion a todas las luces
     for(uint8_t pixel=0; pixel<luces.numPixels();++pixel){
       luces.setPixelColor(pixel, rgb.r, rgb.g, rgb.b);
     }
     luces.show();
-    delay(50);
   }
 }

@@ -32,7 +32,7 @@ void loop() {
   //ciclo para definir color de cada pixel
   for(uint8_t pixel=0; pixel<luces.numPixels();++pixel){
     hsv.h = pixel*proporcion; // uso de regla de 3
-    HSV2RGB(hsv,&rgb); // comvercion de HSV a RGB
+    HSV2RGB(hsv,&rgb); // convercion de HSV a RGB
     luces.setPixelColor(pixel ,rgb.r ,rgb.g ,rgb.b);
   }
   luces.show();
