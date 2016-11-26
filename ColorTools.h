@@ -6,7 +6,14 @@
 #include "inc/HSV.h"
 #include <math.h>
 
-void HSV2RGB(HSV input, RGB *responce){
+
+/**
+ * Transforma del modelo de color HSV al modelo de color RGB.
+ * @param HSV &input, entrada HSV a tranformar.
+ * @param RGB *responce, salida RGB tranformado.
+ **/
+
+void HSV2RGB(HSV &input, RGB *responce){
   float f,p,q,t;
   int i;
 
@@ -58,6 +65,11 @@ void HSV2RGB(HSV input, RGB *responce){
     }
 }
 
+/**
+ * Transforma del modelo de color RGB al modelo de color HSV.
+ * @param RGB &input, entrada RGB a tranformar.
+ * @param HSV *responce, salida HSV tranformado.
+ **/
 void RGB2HSV(RGB input, HSV *responce) {
   float r = input.r/255. , g=input.g/255. , b=input.b/255.;
   float cMax = max(max(r, g), b);

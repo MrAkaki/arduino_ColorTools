@@ -16,21 +16,21 @@ Libreria para trabajar con animacion de colores de forma sensilla.
         float s;
         // Value, valor
         float v;
-        
+
         //Constructor por defecto
         HSV();
-        
+
         //Constructor con parametros
         HSV(float h,float s, float v);
-        
+
         //Contructor de copia
         HSV(const HSV &otro);
-        
+
         //Sobrecarga de operador =
         HSV operator=(const HSV &otro);
-        
+
     };
-    
+
     class RGB {
       public:
         // variable para red, rojo
@@ -39,21 +39,21 @@ Libreria para trabajar con animacion de colores de forma sensilla.
         uint8_t g;
         // varialbe para blue, azul
         uint8_t b;
-    
+
         //Contructor por defecto
         RGB();
-    
+
         //Contructor con parametros
         RGB(uint8_t r,uint8_t g, uint8_t b);
-        
+
         //Contructor de copia
         RGB(const RGB &otro);
-    
+
         //Sobrecarga de operador =
         RGB& operator=(const RGB &otro);
-        
+
     };
-    
+
 ```
 ### Funciones
 ```code
@@ -63,6 +63,7 @@ Libreria para trabajar con animacion de colores de forma sensilla.
     * @param RGB *responce, salida RGB tranformado.
     **/
     void HSV2RGB(HSV &input, RGB *responce);
+    
     /**
     * Transforma del modelo de color RGB al modelo de color HSV.
     * @param RGB &input, entrada RGB a tranformar.
@@ -70,5 +71,3 @@ Libreria para trabajar con animacion de colores de forma sensilla.
     **/
     void RGB2HSV(RGB input, HSV *responce);
 ```
-
-
