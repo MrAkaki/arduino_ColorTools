@@ -10,13 +10,12 @@
 * @license CC-BY-SA
 **/
 
-#include <Adafruit_NeoPixel.h>
 #include <ColorTools.h>
 
 #define NUM_PIXELES 10
-#define PIN_PIXELES 17
+#define PIN_PIXELES 7
 
-Adafruit_NeoPixel luces = Adafruit_NeoPixel(NUM_PIXELES, PIN_PIXELES, NEO_GRB + NEO_KHZ800);
+NeoPixel luces = NeoPixel(NUM_PIXELES, PIN_PIXELES,);
 
 //Uso regla de tres, calculo la proporcion para evitar calculos innesesarios
 float proporcion = 360./(float)NUM_PIXELES;
@@ -28,12 +27,10 @@ void setup() {
 void loop() {
   //variables para los modelos de color
   HSV hsv(0, 1.0, 1.0); // tono 0 saturacion 100% valor 100%
-  RGB rgb;
-  //ciclo para definir color de cada pixel
+//ciclo para definir color de cada pixel
   for(uint8_t pixel=0; pixel<luces.numPixels();++pixel){
     hsv.h = pixel*proporcion; // uso de regla de 3
-    HSV2RGB(hsv,&rgb); // convercion de HSV a RGB
-    luces.setPixelColor(pixel ,rgb.r ,rgb.g ,rgb.b);
+    luces.setPixelColor(pixel ,hsv);
   }
-  luces.show();
+  luces.update();
 }

@@ -12,13 +12,12 @@
 * @license CC-BY-SA
 **/
 
-#include <Adafruit_NeoPixel.h>
 #include <ColorTools.h>
 
 #define NUM_PIXELES 10
-#define PIN_PIXELES 17
+#define PIN_PIXELES 7
 
-Adafruit_NeoPixel luces = Adafruit_NeoPixel(NUM_PIXELES, PIN_PIXELES, NEO_GRB + NEO_KHZ800);
+NeoPixel luces = NeoPixel(NUM_PIXELES, PIN_PIXELES);
 
 //calculo proporciones para evitar calculos innesesarios
 const float propPixel = (2.*PI)/(float)NUM_PIXELES; // posicion de cada pixel
@@ -27,23 +26,23 @@ const float propSin = 360./2; // mapes de 2(resultado de seno + 1) a 360(tono en
 //velocidad de animacion
 const float velocidad = 0.02;
 
+HSV hsv(0, 1.0, 1.0); // tono 0 saturacion 100% valor 100%
+
 void setup() {
   luces.begin();
 }
 
 void loop() {
   //variables para colores
-  HSV hsv(0, 1.0, 1.0); // tono 0 saturacion 100% valor 100%
-  RGB rgb;
+
   //ciclo de animacion de movimiento
   for(float p = -PI; p<PI; p+=velocidad){
     //ciclo para definir color de cada pixel
     for(uint8_t pixel=0; pixel<luces.numPixels();++pixel){
       float val = sin(pixel*propPixel + p) + 1;
       hsv.h = val*propSin;
-      HSV2RGB(hsv,&rgb); // convercion de HSV a RGB
-      luces.setPixelColor(pixel ,rgb.r ,rgb.g ,rgb.b);
+      luces.setPixelColor(pixel ,hsv);
     }
-    luces.show();;
+    luces.update();;
   }
 }

@@ -6,7 +6,7 @@
 * ademas de usa una formula para que el cambio de valores no
 * sea brusco, en si es una paradoja de Zenon( La dicotomia)
 * https://es.wikipedia.org/wiki/Paradojas_de_Zen%C3%B3n#La_dicotom.C3.ADa
-* 
+*
 *
 * @author Alex Vargas Benamburg (alex@vbalex.com)
 * @date Sabado 26, Septiembre 2016
@@ -18,9 +18,9 @@
 #include <ColorTools.h>
 
 #define NUM_PIXELES 10
-#define PIN_PIXELES 17
+#define PIN_PIXELES 7
 
-Adafruit_NeoPixel luces = Adafruit_NeoPixel(NUM_PIXELES, PIN_PIXELES, NEO_GRB + NEO_KHZ800);
+NeoPixel luces = NeoPixel(NUM_PIXELES, PIN_PIXELES);
 
 
 //velocidad de animacion
@@ -31,7 +31,6 @@ const float PROP_AIN = 1./1024.;
 //variables para colores
 //El tono y la saturacion seran modificados constantemente
 HSV hsv(0., 0., 0.5); // tono 0, saturacion 0%, valor 50%
-RGB rgb;
 
 void setup() {
   luces.begin();
@@ -47,9 +46,8 @@ void loop() {
   //ciclo para definir color de cada pixel
   for(uint8_t pixel=0; pixel<luces.numPixels();++pixel){
     hsv.h = pixel*PROP_PIXEL;
-    HSV2RGB(hsv,&rgb); // convercion de HSV a RGB
-    luces.setPixelColor(pixel ,rgb.r ,rgb.g ,rgb.b);
+    luces.setPixelColor(pixel, hsv);
   }
-    luces.show();;
+  luces.update();;
 
 }
