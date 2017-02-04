@@ -1,3 +1,9 @@
+/*
+* Modificacion por Alex Vargas Benamburg
+* Agregadas 2 funciones;setPixelColor reciviendo por parametro RGB y HSV
+* Modificado el 4/2/2017
+*/
+
 /*--------------------------------------------------------------------
   This file is part of the Adafruit NeoPixel library.
 
