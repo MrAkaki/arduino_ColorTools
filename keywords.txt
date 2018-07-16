@@ -8,20 +8,20 @@
 
 RGB	KEYWORD1
 HSV	KEYWORD1
-Color KEYWORD1
-NeoPixel KEYWORD1
+Color	KEYWORD1
+NeoPixel	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-toRGB KEYWORD2
-toHSV KEYWORD2
-begin KEYWORD2
-setPixelColor KEYWORD2
-clear KEYWORD2
-update KEYWORD2
-getPixelColor KEYWORD2
-ColorTools KEYWORD2
+toRGB	KEYWORD2
+toHSV	KEYWORD2
+begin	KEYWORD2
+setPixelColor	KEYWORD2
+clear	KEYWORD2
+update	KEYWORD2
+getPixelColor	KEYWORD2
+ColorTools	KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
